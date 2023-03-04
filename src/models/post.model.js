@@ -49,5 +49,17 @@ models.update = (id, body) => {
   })
 }
 
+models.delete = (id) => {
+  return new Promise((resolve, reject) => {
+    const query = `DELETE FROM tbl_posts WHERE id = ?`
+    db.query(query, [id], (err, result) => {
+      if(err){
+        reject(err)
+      }else{
+        resolve(result)
+      }
+    })
+  })
+}
 
 module.exports = models
