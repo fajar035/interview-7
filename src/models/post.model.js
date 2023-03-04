@@ -35,4 +35,19 @@ models.store = ({title, description}) => {
   })
 }
 
+models.update = (id, body) => {
+  return new Promise((resolve, reject) => {
+    const statement = [body, id]
+    const query = `UPDATE tbl_posts SET ? WHERE id = ?`
+    db.query(query, statement, (err, result) => {
+      if(err){
+        reject(err)
+      }else{
+        resolve(result)
+      }
+    })
+  })
+}
+
+
 module.exports = models

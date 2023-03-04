@@ -29,4 +29,16 @@ controllers.store = async(req, res) => {
   }
 }
 
+controllers.update = async(req, res) => {
+  try {
+    const { id } = req.params
+    const { body } = req
+    const result = await models.update(id, body )
+    return response(res, 200, result)
+  } catch (error) {
+    return response(res, 500, error)
+  }
+}
+
+
 module.exports = controllers

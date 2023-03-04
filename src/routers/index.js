@@ -8,5 +8,6 @@ router.get('/', (req, res) => {
 router.get('/post', postController.all)
 router.get('/post/:id', postController.detail)
 router.post('/post', postController.store)
+router.patch('/post/:id', postController.update)
 
 module.exports = router
