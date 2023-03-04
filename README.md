@@ -54,10 +54,31 @@ To check this API endpoint you can use <a href="https://www.postman.com/">Postma
 
 GET ALL DATA
 ```bash
-curl http://localhost:3000/post
+curl --location 'http://localhost:8000/post'
+```
+GET DATA BY ID
+```bash
+curl --location 'http://localhost:8000/post/1'
 ```
 INSERT DATA
 ```bash
-curl -X POST http://localhost:3000/post -H 'Content-Type: application/json' -d '{"title":"Lorem Ipsum","description":"any"}'
+curl --location 'http://localhost:8000/post' \
+--header 'Content-Type: application/json' \
+--data '{
+    "title": "Lorem Ipsum 4",
+    "description": "ya gitu aja deh "
+}'
 ```
-
+UPDATE DATA
+```bash
+curl --location --request PATCH 'http://localhost:8000/post/4' \
+--header 'Content-Type: application/json' \
+--data '{
+    "title": "Lorem Ipsum 4 - update",
+    "description": "ya gitu"
+}'
+```
+DELETE DATA
+```bash
+curl --location --request DELETE 'http://localhost:8000/post/2'
+```
